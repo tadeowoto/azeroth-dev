@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 @theme {
   --color-font: #ffff;
@@ -6,4 +7,6 @@
   --color-highlight: #f9c74f;
   --color-highlight-secondary: #f9c74f;
   --color-border-color: #4e5564;
+  --font-primary: "Cinzel", serif;
+  --font-secondary: "Inter", serif;
 }
