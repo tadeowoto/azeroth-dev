@@ -8,36 +8,47 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/warcraftcn/card";
+import { Button } from "@/components/ui/warcraftcn/button";
+import { pathMock } from "@/mocks/pathmocks.ts";
 ---
 
 <Layout>
   <main
     class="w-full min-h-screen flex items-center justify-start flex-col p-16"
   >
-    <h1 class="text-7xl font-primary">Take your next path</h1>
+    <h1 class="text-7xl font-primary text-font">Take your next path</h1>
     <div class="w-full h-full font-secondary">
-      <h2 class="text-3xl text-center mt-5">Learn to code</h2>
+      <h2 class="text-3xl text-center mt-5 text-highlight">
+        Free online resources
+      </h2>
       <ul
         class="w-full h-full grid grid-cols-2 grid-rows-2 place-items-center mt-5 gap-3"
       >
-        <Card>
-          <CardHeader>
-            <CardTitle>JavaScript</CardTitle>
-            <CardDescription>Card description</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Card content goes here.</p>
-          </CardContent>
-          <CardFooter>
-            <p>Card footer</p>
-          </CardFooter>
-        </Card>;
-        <li>TypeScript</li>
-        <li>Python</li>
-        <li>Go</li>
-        <li>Java</li>
-        <li>PHP</li>
-        <li>SQL</li>
+        {
+          pathMock.map((path) => (
+            <Card
+              client:visible
+              className="font-primary flex flex-col items-center justify-center min-w-md"
+            >
+              <CardHeader className="w-full">
+                <CardTitle className="text-2xl">{path.title}</CardTitle>
+                <CardDescription className="text-sm font-secondary">
+                  {path.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>Card content goes here.</p>
+              </CardContent>
+              <CardFooter>
+                <Button>
+                  <a class="w-full h-full" href={path.slug}>
+                    Begin the path of {path.title}
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))
+        }
       </ul>
     </div>
   </main>
