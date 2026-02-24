@@ -1,6 +1,7 @@
 ---
 import FreeResources from "./FreeResources.astro";
 import JoinCommunity from "./JoinCommunity.astro";
+import { Button } from "./ui/warcraftcn/button";
 ---
 
 <section
@@ -14,10 +15,13 @@ import JoinCommunity from "./JoinCommunity.astro";
       <p class="text-2xl text-font-secondary mb-6">
         / Begin the path of learning
       </p>
-      <button
+      <Button
+        client:visible
+        variant="default"
         class="px-6 py-3 bg-highlight text-slate-900 font-semibold rounded hover:opacity-90 transition"
-        >Get started</button
       >
+        Get started
+      </Button>
     </div>
 
     <div class="w-full max-w-4xl grid grid-cols-2 gap-8">
@@ -25,6 +29,6 @@ import JoinCommunity from "./JoinCommunity.astro";
       <JoinCommunity />
     </div>
   </div>
-</section>
 
-<style></style>
+  <style></style>
+</section>
