@@ -1,5 +1,5 @@
 ---
-
+import { Avatar } from "./ui/warcraftcn/avatar";
 ---
 
 <header
@@ -35,6 +35,11 @@
       <p class="text-sm font-semibold text-yellow-400">Level 9</p>
     </div>
     <progress class="h-2 w-24 accent-yellow-400"></progress>
-    <img src="" alt="user image" class="h-10 w-10 rounded-full bg-gray-700" />
+    <Avatar
+      src="/path-to-your-orc.png"
+      size="xs"
+      faction="undead"
+      client:load
+    />
   </div>
 </header>
