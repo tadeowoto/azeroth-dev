@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/warcraftcn/card";
 import { Button } from "@/components/ui/warcraftcn/button";
 import type { Path } from "@/types/types";
-
-const res = await fetch("http://localhost:8080/api/path");
-const paths = await res.json();
+import paths from "@/services/path";
 ---
 
 <Layout>
