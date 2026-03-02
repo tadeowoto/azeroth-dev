@@ -1,0 +1,22 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getAllSlugs } from "@/services/path";
+import Layout from "@/layouts/Layout.astro";
+
+export const getStaticPaths = (async () => {
+  const slugs = await getAllSlugs();
+  return slugs.map((s: string) => ({
+    params: { slug: s },
+  }));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+---
+
+<Layout>
+  <article>
+    <main>
+      <h1>Explorando la ruta: {slug}</h1>
+    </main>
+  </article>
+</Layout>

@@ -10,7 +10,9 @@ import {
 } from "@/components/ui/warcraftcn/card";
 import { Button } from "@/components/ui/warcraftcn/button";
 import type { Path } from "@/types/types";
-import paths from "@/services/path";
+import { getPaths } from "@/services/path";
+
+const paths = await getPaths();
 ---
 
 <Layout>
@@ -41,11 +43,9 @@ import paths from "@/services/path";
                 <p>Card content goes here.</p>
               </CardContent>
               <CardFooter>
-                <Button>
-                  <a class="w-full h-full" href={path.slug}>
-                    Begin the path of {path.title}
-                  </a>
-                </Button>
+                <a class="w-full h-full" href={`learn/${path.slug}`}>
+                  <Button>Begin the path of {path.title}</Button>
+                </a>
               </CardFooter>
             </Card>
           ))
