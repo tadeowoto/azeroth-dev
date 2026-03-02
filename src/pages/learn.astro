@@ -9,7 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/warcraftcn/card";
 import { Button } from "@/components/ui/warcraftcn/button";
-import { pathMock } from "@/mocks/pathmocks.ts";
+import type { Path } from "@/types/types";
+
+const res = await fetch("http://localhost:8080/api/path");
+const paths = await res.json();
 ---
 
 <Layout>
@@ -25,7 +28,7 @@ import { pathMock } from "@/mocks/pathmocks.ts";
         class="w-full h-full grid grid-cols-2 grid-rows-2 place-items-center mt-5 gap-3"
       >
         {
-          pathMock.map((path) => (
+          paths.map((path: Path) => (
             <Card
               client:visible
               className="font-primary flex flex-col items-center justify-center min-w-md"
