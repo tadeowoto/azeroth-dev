@@ -32,35 +32,43 @@ const paths = await getPaths();
 
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
         {
-          paths.map((path: Path) => (
-            <Card
-              client:visible
-              className="font-primary flex flex-col items-center justify-center w-full max-w-md h-full bg-slate-900/40 border-border-color"
-            >
-              <CardHeader className="w-full text-center md:text-left">
-                <CardTitle className="text-xl md:text-2xl">
-                  {path.title}
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm font-secondary">
-                  {path.description}
-                </CardDescription>
-              </CardHeader>
+          !paths || paths.length === 0 ? (
+            <div class="col-span-full py-10 text-center">
+              <p class="text-font-secondary font-secondary italic">
+                No paths available at the moment.
+              </p>
+            </div>
+          ) : (
+            paths.map((path: Path) => (
+              <Card
+                client:visible
+                className="font-primary flex flex-col w-full max-w-md h-full bg-slate-900/40 border-border-color"
+              >
+                <CardHeader className="w-full text-center md:text-left">
+                  <CardTitle className="text-xl md:text-2xl">
+                    {path.title}
+                  </CardTitle>
+                  <CardDescription className="text-xs md:text-sm font-secondary">
+                    {path.description}
+                  </CardDescription>
+                </CardHeader>
 
-              <CardContent className="grow text-center md:text-left">
-                <p class="text-sm text-font-secondary">
-                  Explore the curriculum and start building projects.
-                </p>
-              </CardContent>
+                <CardContent className="grow text-center md:text-left">
+                  <p class="text-sm text-font-secondary">
+                    Explore the curriculum and start building projects.
+                  </p>
+                </CardContent>
 
-              <CardFooter className="w-full pb-6">
-                <a class="w-full" href={`learn/${path.slug}`}>
-                  <Button className="w-full py-6 text-md">
-                    Begin the path of {path.title}
+                <CardFooter className="w-full pb-6">
+                  <Button asChild className="w-full py-6 text-md">
+                    <a href={`learn/${path.slug}`}>
+                      Begin the path of {path.title}
+                    </a>
                   </Button>
-                </a>
-              </CardFooter>
-            </Card>
-          ))
+                </CardFooter>
+              </Card>
+            ))
+          )
         }
       </ul>
     </div>

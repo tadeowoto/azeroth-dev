@@ -1,20 +1,33 @@
 export const getPaths = async () => {
-  const res = await fetch("http://localhost:8080/api/path");
-  const paths = await res.json();
+  try {
+    const res = await fetch("http://localhost:8080/api/path");
+    const paths = await res.json();
 
-  return paths;
+    return paths;
+  } catch (error) {
+    //TODO post the error to the database
+    console.log(error);
+  }
 };
 
 export const getPathBySlug = async (slug) => {
-  const res = await fetch(`http://localhost:8080/api/path/${slug}`);
-  const path = await res.json();
+  try {
+    const res = await fetch(`http://localhost:8080/api/path/${slug}`);
+    const path = await res.json();
 
-  return path;
+    return path;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getAllSlugs = async () => {
-  const res = await fetch("http://localhost:8080/api/path/all");
-  const slugs = await res.json();
+  try {
+    const res = await fetch("http://localhost:8080/api/path/all");
+    const slugs = await res.json();
 
-  return slugs;
+    return slugs;
+  } catch (error) {
+    console.log(error);
+  }
 };
