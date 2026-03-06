@@ -9,4 +9,6 @@
   --color-border-color: #4e5564;
   --font-primary: "Cinzel", serif;
   --font-secondary: "Inter", serif;
+
+  --breakpoint-xs: 320;
 }

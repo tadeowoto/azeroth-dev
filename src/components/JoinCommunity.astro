@@ -2,17 +2,15 @@
 import { Badge } from "./ui/warcraftcn/badge";
 ---
 
-<div class="p-8 rounded border border-border-color">
-  <p class="text-xl font-primary text-highlight mb-4">Join our community</p>
-  <ul class="flex flex-col gap-3">
-    <li>
-      <Badge variant="default" size="lg">Discord</Badge>
-    </li>
-    <li>
-      <Badge variant="default" size="lg">Discord</Badge>
-    </li>
-    <li>
-      <Badge variant="destructive" size="lg">Discord </Badge>
-    </li>
+<div
+  class="w-full p-8 rounded border border-border-color flex flex-col items-center md:items-start justify-center bg-transparent"
+>
+  <p class="text-xl md:text-2xl font-primary text-highlight mb-6">
+    Join our community
+  </p>
+  <ul class="flex flex-wrap justify-center md:justify-start gap-3">
+    <li><Badge variant="default" size="lg">Discord</Badge></li>
+    <li><Badge variant="default" size="lg">Twitter</Badge></li>
+    <li><Badge variant="destructive" size="lg">GitHub</Badge></li>
   </ul>
 </div>
