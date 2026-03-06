@@ -1,7 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getAllSlugs } from "@/services/path";
-import Layout from "@/layouts/Layout.astro";
+import PathLayout from "@/layouts/PathLayout.astro";
+import { Button } from "@/components/ui/warcraftcn/button";
 
 export const getStaticPaths = (async () => {
   const slugs = await getAllSlugs();
@@ -13,10 +14,35 @@ export const getStaticPaths = (async () => {
 const { slug } = Astro.params;
 ---
 
-<Layout>
-  <article>
-    <main>
-      <h1>Explorando la ruta: {slug}</h1>
-    </main>
+<PathLayout>
+  <article
+    class="w-full min-h-screen flex items-center justify-start flex-col p-6 md:p-10"
+  >
+    <div
+      class="w-full max-w-4xl flex flex-col items-center justify-center gap-8 mt-[3vh] md:mt-[20vh] text-center"
+    >
+      <header class="w-full flex flex-col items-center justify-center gap-4">
+        <h1
+          class="text-6xl md:text-8xl font-primary text-font drop-shadow-2xl capitalize"
+        >
+          {slug} Path
+        </h1>
+        <p
+          class="text-lg md:text-2xl font-secondary text-font-secondary max-w-2xl"
+        >
+          This is the <span class="text-highlight font-bold">{slug}</span> path for
+          learning to code free
+        </p>
+      </header>
+
+      <Button
+        client:visible
+        variant="default"
+        className="px-10 py-6 text-white font-bold rounded-sm hover:scale-105 transition-transform shadow-lg"
+      >
+        Get started
+      </Button>
+      <a href="/learn">or go back</a>
+    </div>
   </article>
-</Layout>
+</PathLayout>

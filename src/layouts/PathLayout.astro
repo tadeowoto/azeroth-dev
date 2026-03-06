@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+
+const randomNum = Math.floor(Math.random() * 3) + 1;
+const bgPath = `/pathbg/pathbg0${randomNum}.png`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Azeroth.dev - Path</title>
+  </head>
+  <body>
+    <main id="path-layout" style={`background-image: url('${bgPath}')`}>
+      <div class="gradient-overlay min-h-screen">
+        <slot />
+      </div>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+  }
+
+  #path-layout {
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gradient-overlay {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+</style>
